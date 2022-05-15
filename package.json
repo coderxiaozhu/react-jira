@@ -42,7 +42,7 @@
     ]
   },
   "devDependencies": {
-    "antd": "^4.20.4",
+    "antd": "^4.20.5",
     "normalize.css": "^8.0.1"
   },
   "msw": {
