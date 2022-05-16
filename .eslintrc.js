@@ -1,16 +1,39 @@
 module.exports = {
     env: {
-        es6: true,
-        node: true,
-        browser: true
+        browser: true,
+        es2020: true,
+        node: true
     },
-    extends: ['eslint:recommended', 'plugin:prettier/recommended'],
+    extends: [
+        'eslint:recommended',
+        'plugin:react/recommended',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:react-hooks/recommended'
+    ],
+    parser: '@typescript-eslint/parser',
     parserOptions: {
-        ecmaVersion: 2018,
-        parser: require.resolve('babel-eslint'),
+        ecmaFeatures: {
+            jsx: true
+        },
+        ecmaVersion: 11,
         sourceType: 'module'
     },
-    plugins: [],
-    ignorePatterns: ['.prettierrc.js', '.stylelintrc.js'],
-    rules: {}
+    plugins: ['react', '@typescript-eslint', 'react-hooks'],
+    rules: {
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
+        '@typescript-eslint/no-explicit-any': 'off',
+        '@typescript-eslint/no-var-requires': 'off',
+        'array-callback-return': 'error',
+        'block-scoped-var': 'error',
+        'max-lines-per-function': ['error', { max: 600 }],
+        'no-caller': 'error',
+        'no-empty-function': 'error',
+        'no-eval': 'error',
+        'no-sequences': 'off',
+        'react-hooks/exhaustive-deps': 0,
+        'react-hooks/rules-of-hooks': 'error',
+        'react/display-name': 0,
+        'require-await': 'error',
+        eqeqeq: 'error'
+    }
 };
