@@ -24,13 +24,20 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prepare": "husky install",
+    "commit": "git-cz"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    }
   },
   "browserslist": {
     "production": [
@@ -45,9 +52,22 @@
     ]
   },
   "devDependencies": {
+    "@commitlint/config-conventional": "^16.2.4",
     "@types/nprogress": "^0.2.0",
     "antd": "^4.20.5",
-    "normalize.css": "^8.0.1"
+    "babel-eslint": "^10.1.0",
+    "commitizen": "^4.2.4",
+    "commitlint": "^16.3.0",
+    "commitlint-config-cz": "^0.13.3",
+    "cz-conventional-changelog": "^3.3.0",
+    "cz-customizable": "^6.3.0",
+    "eslint": "^8.15.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^12.4.1",
+    "normalize.css": "^8.0.1",
+    "prettier": "^2.6.2"
   },
   "msw": {
     "workerDirectory": "public"
