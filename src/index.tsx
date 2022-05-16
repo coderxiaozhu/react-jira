@@ -1,10 +1,9 @@
+import 'antd/dist/antd.min.css';
+import 'normalize.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import { loadDevTools } from 'jira-dev-tool';
-
-import 'antd/dist/antd.less';
-import '../src/index.css';
 import App from './App';
 
 const root = ReactDOM.createRoot(
