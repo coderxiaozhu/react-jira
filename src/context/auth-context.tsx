@@ -2,7 +2,7 @@ import React, { memo, useState } from 'react';
 import { UserResponse } from '../network/login/loginType';
 import { login } from '../network/login/index';
 import { register } from '../network/register/index';
-import { remove } from '../request/storage';
+import { remove, add } from '../request/storage';
 
 interface AuthForm {
     username: string;
@@ -30,6 +30,9 @@ export const AuthProvider: React.FC<Props> = memo(({ children }: Props) => {
     // 登录
     const loginProvider = (form: AuthForm) => {
         return login(form).then((res) => {
+            // 保存token
+            console.log(res.data.user);
+            add(res.data.user.token);
             setUser(res.data.user);
         });
     };

@@ -1,10 +1,8 @@
-import { UserResponse } from '../network/login/loginType';
-
 const localStorageKey = '__auth_provider_token__';
 
 // 添加token
-export const add = (user: UserResponse) => {
-    window.localStorage.setItem(localStorageKey, user.user.token);
+export const add = (token: string) => {
+    window.localStorage.setItem(localStorageKey, token);
 };
 
 // 获取token
