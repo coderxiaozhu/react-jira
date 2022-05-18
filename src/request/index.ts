@@ -23,7 +23,7 @@ request.interceptors.request.use(
 request.interceptors.response.use(
     (res) => {
         NProgress.done();
-        return res.data;
+        return res;
     },
     (err) => {
         if (err && err.response) {
