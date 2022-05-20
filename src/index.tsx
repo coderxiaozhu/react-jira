@@ -1,20 +1,22 @@
-import 'antd/dist/antd.min.css';
 import 'normalize.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import { loadDevTools } from 'jira-dev-tool';
+import { BrowserRouter } from 'react-router-dom';
+
+import './index.less';
 import App from './App';
 import { AuthProvider } from './context/auth-context';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 loadDevTools(() => {
     root.render(
-        <React.StrictMode>
+        <BrowserRouter>
             <AuthProvider>
                 <App />
             </AuthProvider>
-        </React.StrictMode>
+        </BrowserRouter>
     );
 });
 

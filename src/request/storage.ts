@@ -1,4 +1,4 @@
-const localStorageKey = '__auth_provider_token__';
+export const localStorageKey = '__auth_provider_token__';
 
 // 添加token
 export const add = (token: string) => {
@@ -6,7 +6,7 @@ export const add = (token: string) => {
 };
 
 // 获取token
-export const get = () => {
+export const get = (): string | any => {
     return window.localStorage.getItem(localStorageKey);
 };
 

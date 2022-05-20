@@ -1,6 +1,7 @@
 import axios from 'axios';
 import NProgress from 'nprogress';
 import { message } from 'antd';
+import { get } from './storage';
 
 const baseURL = process.env.REACT_APP_API_URL;
 
@@ -12,6 +13,7 @@ const request = axios.create({
 request.interceptors.request.use(
     (config) => {
         NProgress.start();
+        config.headers!.Authorization = get();
         return config;
     },
     (err) => {

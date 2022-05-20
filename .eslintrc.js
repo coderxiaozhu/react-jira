@@ -34,6 +34,7 @@ module.exports = {
         'react-hooks/rules-of-hooks': 'error',
         'react/display-name': 0,
         'require-await': 'error',
-        eqeqeq: 'error'
+        eqeqeq: 'error',
+        '@typescript-eslint/no-non-null-assertion': 'off'
     }
 };
