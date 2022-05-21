@@ -8,7 +8,6 @@ import { BrowserRouter } from 'react-router-dom';
 import './index.less';
 import App from './App';
 import { AuthProvider } from './context/auth-context';
-
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 loadDevTools(() => {
     root.render(

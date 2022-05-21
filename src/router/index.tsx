@@ -2,8 +2,6 @@ import React, { Suspense } from 'react';
 import { Navigate } from 'react-router-dom';
 
 import { get } from '../request/storage';
-
-// const App = React.lazy(() => import('../App'));
 const Login = React.lazy(() => import('../pages/unauthenticated'));
 const List = React.lazy(() => import('../pages/list'));
 const Task = React.lazy(() => import('../pages/task'));
