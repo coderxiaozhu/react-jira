@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
-import { Form, Input, Button } from 'antd';
+import { Form, Input } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
 import { useAuth } from '../../customHook/useAuth';
 import { XZregisterWapper } from './style';
@@ -9,11 +10,13 @@ const XZregister = memo(() => {
     // state hook
 
     // other hook
-    const { user, registerProvider } = useAuth();
+    const { registerProvider } = useAuth();
+    const navigate = useNavigate();
 
     // binding Event
     const OnFinish = (values: { username: string; password: string }) => {
         registerProvider(values);
+        navigate('/home');
     };
     return (
         <XZregisterWapper>

@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
-import { Form, Input, Button } from 'antd';
+import { Form, Input } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
 import { useAuth } from '../../customHook/useAuth';
 import { XZloginWapper, XZLongBtn } from './style';
@@ -9,10 +10,12 @@ const XZlogin = memo(() => {
 
     // other hook
     const { loginProvider } = useAuth();
+    const navigate = useNavigate();
 
     // binding Event
     const OnFinish = (values: { username: string; password: string }) => {
         loginProvider(values);
+        navigate('/home');
     };
     return (
         <XZloginWapper>
