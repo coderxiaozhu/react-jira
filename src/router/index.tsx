@@ -15,34 +15,38 @@ const lazyLoad = (children: React.ReactNode) => {
 
 const token = get('__auth_provider_token__');
 
-const Rootrouter = [
-    {
-        path: '/',
-        element: token ? <Navigate to={'/home/list'} /> : <Navigate to={'/login'} />
-    }
-];
+const checkToken = (element: React.ReactNode) => {
+    return token ? element : <Navigate to={'/login'} />;
+};
+
+// const Rootrouter = [
+//     {
+//         path: '/',
+//         element: token ? <Navigate to={'/home/list'} /> : <Navigate to={'/login'} />
+//     }
+// ];
 
 const leftRouter = [
     {
         path: '/home',
         key: 'home',
-        element: lazyLoad(<Home />),
+        element: checkToken(lazyLoad(<Home />)),
         children: [
             {
                 path: '/home/list',
-                element: lazyLoad(<List />)
+                element: checkToken(lazyLoad(<List />))
             },
             {
                 path: '/home/about',
-                element: lazyLoad(<About />)
+                element: checkToken(lazyLoad(<About />))
             },
             {
                 path: '/home/task',
-                element: lazyLoad(<Task />)
+                element: checkToken(lazyLoad(<Task />))
             },
             {
                 path: '/home/board',
-                element: lazyLoad(<Board />)
+                element: checkToken(lazyLoad(<Board />))
             }
         ]
     }
@@ -55,6 +59,6 @@ const loginRouter = [
     }
 ];
 
-const router = [...Rootrouter, ...leftRouter, ...loginRouter];
+const router = [...leftRouter, ...loginRouter];
 
 export { router };

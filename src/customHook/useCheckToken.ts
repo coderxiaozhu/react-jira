@@ -8,8 +8,8 @@ const useCheckToken = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const pathname = location.pathname;
+    const gotoLogin = pathname.includes('login') || pathname.includes('register');
     useEffect(() => {
-        const gotoLogin = pathname.includes('login') || pathname.includes('register');
         if (get('__auth_provider_token__')) {
             if (gotoLogin) {
                 navigate('/home/list');

@@ -1,22 +1,19 @@
-import React, { memo } from 'react';
+import React from 'react';
 import { Form, Input } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
 import { useAuth } from '../../customHook/useAuth';
-import useCheckToken from '../../customHook/useCheckToken';
 import { XZloginWapper, XZLongBtn } from './style';
 
-const XZlogin = memo(() => {
+const XZlogin = () => {
     // state hook
 
     // other hook
     const { loginProvider } = useAuth();
     const navigate = useNavigate();
-
     // binding Event
     const OnFinish = (values: { username: string; password: string }) => {
         loginProvider(values);
-        useCheckToken();
         navigate('/home/list');
     };
     return (
@@ -42,6 +39,6 @@ const XZlogin = memo(() => {
             </Form>
         </XZloginWapper>
     );
-});
+};
 
 export default XZlogin;
