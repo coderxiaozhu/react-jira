@@ -3,6 +3,7 @@ import { Form, Input } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
 import { useAuth } from '../../customHook/useAuth';
+import useCheckToken from '../../customHook/useCheckToken';
 import { XZloginWapper, XZLongBtn } from './style';
 
 const XZlogin = memo(() => {
@@ -15,7 +16,8 @@ const XZlogin = memo(() => {
     // binding Event
     const OnFinish = (values: { username: string; password: string }) => {
         loginProvider(values);
-        navigate('/home');
+        useCheckToken();
+        navigate('/home/list');
     };
     return (
         <XZloginWapper>

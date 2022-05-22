@@ -13,7 +13,7 @@ const request = axios.create({
 request.interceptors.request.use(
     (config) => {
         NProgress.start();
-        config.headers!.Authorization = get();
+        config.headers!.Authorization = get('__auth_provider_token__');
         return config;
     },
     (err) => {

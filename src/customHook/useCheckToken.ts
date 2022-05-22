@@ -10,9 +10,9 @@ const useCheckToken = () => {
     const pathname = location.pathname;
     useEffect(() => {
         const gotoLogin = pathname.includes('login') || pathname.includes('register');
-        if (get()) {
+        if (get('__auth_provider_token__')) {
             if (gotoLogin) {
-                navigate('/home');
+                navigate('/home/list');
             }
         } else {
             if (!gotoLogin) {

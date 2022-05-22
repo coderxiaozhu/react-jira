@@ -13,12 +13,12 @@ const lazyLoad = (children: React.ReactNode) => {
     return <Suspense fallback={<>loding....</>}>{children}</Suspense>;
 };
 
-const token = get();
+const token = get('__auth_provider_token__');
 
 const Rootrouter = [
     {
         path: '/',
-        element: token ? <Navigate to={'/home'} /> : <Navigate to={'/login'} />
+        element: token ? <Navigate to={'/home/list'} /> : <Navigate to={'/login'} />
     }
 ];
 

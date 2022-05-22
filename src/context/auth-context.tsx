@@ -32,7 +32,8 @@ export const AuthProvider: React.FC<Props> = memo(({ children }: Props) => {
         return login(form).then((res) => {
             // 保存token
             console.log(res.data.user);
-            add(res.data.user.token);
+            add('__auth_provider_token__', res.data.user.token);
+            add('userInfo', JSON.stringify(res.data.user));
             setUser(res.data.user);
         });
     };
@@ -44,7 +45,7 @@ export const AuthProvider: React.FC<Props> = memo(({ children }: Props) => {
     };
     // 注销登录
     const loginOut = () => {
-        remove();
+        remove('__auth_provider_token__');
         setUser(null);
     };
 
