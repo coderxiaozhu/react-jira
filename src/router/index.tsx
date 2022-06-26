@@ -59,6 +59,13 @@ const loginRouter = [
     }
 ];
 
-const router = [...leftRouter, ...loginRouter];
+const defaultRouter = [
+    {
+        path: '/',
+        element: <Navigate to={'/login'} />
+    }
+];
+
+const router = [...leftRouter, ...loginRouter, ...defaultRouter];
 
 export { router };
